@@ -1,13 +1,10 @@
-import React from 'react'
-import friendsImg from '../assets/images/friends.svg'
-import Header from '../components/Header/Header'
+import friendsImg from '../assets/images/friends.svg';
+import Header from '../components/Header/Header';
 
-
-const HomePage: React.FC = () => {
+const HomePage = () => {
     return (
         <div className="wrapper">
             <Header />
-
 
             <header className="header header-main">
                 <div className="header__body">
@@ -18,17 +15,17 @@ const HomePage: React.FC = () => {
                                     <h1 className="header__title">The Harry Potter Universe</h1>
                                     <h2 className="header__subtitle">J. K. Rowling</h2>
                                     <div className="header__content-buttons">
-                                        <a className="header__content-btn button button-empty" href="/characters">Characters</a>
-                                        <a className="header__content-btn button" href="/filmography">Filmography</a>
+                                        <a className="header__content-btn button button-empty" href="/characters">
+                                            Characters
+                                        </a>
+                                        <a className="header__content-btn button" href="#">
+                                            Filmography
+                                        </a>
                                     </div>
                                 </div>
 
-
                                 <img src={friendsImg} alt="friends" />
-
-
                             </div>
-
 
                             <ul className="header__row">
                                 <li className="header__row-item">
@@ -51,19 +48,12 @@ const HomePage: React.FC = () => {
                                     Main Wizards
                                 </li>
                             </ul>
-
-
                         </div>
-
-
                     </div>
                 </div>
             </header>
-
-
         </div>
-    )
-}
+    );
+};
 
-
-export default HomePage
+export default HomePage;

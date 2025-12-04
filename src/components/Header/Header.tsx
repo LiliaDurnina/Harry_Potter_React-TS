@@ -1,27 +1,23 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/images/logo.svg'
-
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../../assets/images/logo.svg';
 
 const Header: React.FC = () => {
-    const [open, setOpen] = useState(false)
-
+    const [open, setOpen] = useState(false);
+    const location = useLocation(); // текущий путь
 
     const toggle = (e?: React.MouseEvent) => {
-        if (e) e.preventDefault()
-        setOpen(prev => !prev)
-    }
+        if (e) e.preventDefault();
+        setOpen(prev => !prev);
+    };
 
+    const closeMenu = () => setOpen(false);
 
-    const closeMenu = () => setOpen(false)
-
+    const isActive = (path: string) => location.pathname === path;
 
     return (
         <header className="header header-main">
-            <a href="#" className="burger" onClick={toggle}>
-                <span />
-            </a>
-
+            <a href="#" className="burger" onClick={toggle}><span /></a>
 
             <div className={`header__top ${open ? 'header__top--burger-open' : ''}`}>
                 <div className="container">
@@ -30,33 +26,36 @@ const Header: React.FC = () => {
                             <img src={logo} alt="logo" />
                         </Link>
 
-
                         <nav className="header__nav">
                             <ul className="header__nav-list">
                                 <li className="header__nav-item">
-                                    <Link className="header__nav-link" to="/characters" onClick={closeMenu}>Characters</Link>
+                                    <Link className={`header__nav-link ${isActive('/characters') ? 'active' : ''}`} to="/characters" onClick={closeMenu}>
+                                        Characters
+                                    </Link>
                                 </li>
                                 <li className="header__nav-item">
-                                    <span className="header__nav-link disabled">Houses</span>
+                                    <Link className={`header__nav-link ${isActive('/houses') ? 'active' : ''}`} to="/houses" onClick={closeMenu}>
+                                        Houses
+                                    </Link>
                                 </li>
                                 <li className="header__nav-item">
-                                    <Link className="header__nav-link" to="/filmography" onClick={closeMenu}>Filmography</Link>
+                                    <Link className={`header__nav-link ${isActive('/filmography') ? 'active' : ''}`} to="/filmography" onClick={closeMenu}>
+                                        Filmography
+                                    </Link>
                                 </li>
                                 <li className="header__nav-item">
-                                    <span className="header__nav-link disabled">About us</span>
+                                    <Link className={`header__nav-link ${isActive('/about') ? 'active' : ''}`} to="/about" onClick={closeMenu}>
+                                        About us
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
 
-
                     </div>
                 </div>
             </div>
-
-
         </header>
-    )
-}
+    );
+};
 
-
-export default Header
+export default Header;
