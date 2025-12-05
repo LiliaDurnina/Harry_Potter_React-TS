@@ -4,6 +4,7 @@ import { BooksMoviesAPI } from '../api/filmographyApi';
 import type { Media } from '../types/HPFilmography';
 import FilmographyCarousel from '../components/Filmography/FilmographyCarousel';
 import MediaModal from '../components/Filmography/FilmographyModal';
+import Footer from '../components/Footer/Footer'; 
 
 const FilmographyPage: React.FC = () => {
     const [books, setBooks] = useState<Media[]>([]);
@@ -91,8 +92,10 @@ const FilmographyPage: React.FC = () => {
                     />
                 </div>
             </main>
+            <Footer />
         </div>
     );
 };
+
 
 export default FilmographyPage;
