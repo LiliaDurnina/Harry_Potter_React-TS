@@ -31,7 +31,7 @@ const CharacterGrid: React.FC = () => {
         const chars = await HPapi.getAllCharct();
         setAllCharacters(chars);
         setVisibleCharacters(chars.slice(0, charactersPerPage));
-        setCurrentIndex(charsPerPage);
+        setCurrentIndex(charactersPerPage);
       } catch {
         setError("Не удалось загрузить персонажей. Проверьте интернет соединение.");
       } finally {

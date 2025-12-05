@@ -13,3 +13,10 @@ export interface Character {
   wand?: Wand;
   alternate_names?: string[];
 }
+
+export interface CharacterDetails {
+  name: string;
+  gender: string;
+  hogwartsStudent: boolean;
+  hogwartsStaff: boolean;
+}

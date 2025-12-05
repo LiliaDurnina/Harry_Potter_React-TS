@@ -5,6 +5,7 @@ import type { Character } from "../../types/HPCharacter";
 interface Props {
   character: Character;
   onClick: (char: Character) => void;
+  getHouseClass?: (house?: string) => string; 
 }
 
 const houseClassMap: Record<string, string> = {

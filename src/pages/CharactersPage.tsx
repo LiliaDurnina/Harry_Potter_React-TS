@@ -21,7 +21,7 @@ const CharactersPage = () => {
       const data: Character[] = await res.json();
       setCharacters(data);
       setCurrentIndex(charactersPerPage);
-    } catch (e: unknown) {
+    } catch (e: any) {
       setError(e.message);
     } finally {
       setLoading(false);
